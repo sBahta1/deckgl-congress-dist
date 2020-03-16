@@ -2,7 +2,7 @@ import mapStyles from './map-styles';
 import { GoogleMapsOverlay } from '@deck.gl/google-maps';
 import { GeoJsonLayer } from '@deck.gl/layers';
 
-const sourceData = './pa-dist.geojson';
+const sourceData = './States/states.geojson';
 
 const layer = () => new GeoJsonLayer({
   id: 'geojson-layer',
@@ -31,7 +31,22 @@ window.initMap = () => {
     center: { lat: 40.0, lng: -100.0 },
     zoom: 5,
     styles: mapStyles
+
   });
+  // google.maps.event.addListener(map, 'mousemove', function (event) {
+  //   displayCoordinates(event.latLng);
+  //   console.log(event.latLng);
+    
+  // });
+
+  // function displayCoordinates(pnt) {
+  //   var lat = pnt.lat();
+  //   lat = lat.toFixed(4);
+  //   var lng = pnt.lng();
+  //   lng = lng.toFixed(4);
+  //   console.log("Latitude: " + lat + "  Longitude: " + lng);
+  // };
+
   const overlay = new GoogleMapsOverlay({
     layers: [
       layer()
